@@ -1,0 +1,28 @@
+﻿@{ 
+    string style = "../Styles/style.css";
+}
+
+<html>
+<head>
+    <title>BuildsOfSkyrim - Main</title>
+    <link rel="stylesheet" type="text/css" href="@style">
+</head>
+<body>
+    <div id="all">
+        <div id="top">
+            <div id="banner">BANNER WILL GO HERE</div>
+            <div id="top_menu">
+            <ul>
+                <li>@Html.ActionLink("Home","Index")</li>
+                <li>@Html.ActionLink("Stuff", "Index")</li>
+                <li>@Html.ActionLink("Things", "Index")</li>
+                <li style="float:right">@Html.ActionLink("Login", "Index")</li>
+            </ul>
+            </div>
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
