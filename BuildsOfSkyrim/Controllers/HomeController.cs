@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildsOfSkyrim.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,11 @@ namespace BuildsOfSkyrim.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Build()
+        {
+            return View(BuildDAO.Example());
         }
     }
 }

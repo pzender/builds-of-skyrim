@@ -11,5 +11,9 @@ namespace BuildsOfSkyrim.Models
         public float StatHealth, StatMagicka, StatStamina;
         public string Description;
         public string ImgLink;
+
+        public List<Skill> Skills;
+
+
     }
 }

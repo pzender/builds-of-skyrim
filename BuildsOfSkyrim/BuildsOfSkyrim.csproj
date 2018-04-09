@@ -147,7 +147,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Build.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Perk.cs" />
+    <Compile Include="Models\PerkTree.cs" />
+    <Compile Include="Models\Skill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BuildDAO.cs" />
+    <Compile Include="Service\SkillDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -169,6 +175,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Styles\build.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -181,6 +188,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Tree.cshtml" />
+    <Content Include="Views\Home\Build.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

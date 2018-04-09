@@ -39,7 +39,7 @@
 
 #top_menu li a {
     display:block;
-    width:60px;
+    width:120px;
     color:#afa;
     text-align:center;
     padding: 10px;
@@ -54,4 +54,5 @@
 #content{
     margin:auto;
     text-align:justify;
+    overflow:auto;
 }

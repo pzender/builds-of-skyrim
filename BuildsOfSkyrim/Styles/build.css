@@ -1,0 +1,22 @@
+﻿#img_slot {
+    background-color: #400;
+    float: right;
+    width: auto;
+    margin-left:15px;  
+}
+
+#screenshot {
+    display: none;
+    float: right;
+}
+
+#tree_graph {
+    float: right;
+}
+
+div.tab {
+    width: 50%;
+    padding: 10px;
+    display: inline;
+    border: 2px solid black;
+}

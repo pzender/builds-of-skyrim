@@ -1,0 +1,33 @@
+﻿@using BuildsOfSkyrim.Models
+@model BuildsOfSkyrim.Models.Build
+
+@{
+    ViewBag.Title = "Build";
+}
+
+@{ int svg_unit = 30;}
+<div id="img_slot">
+    <div class="tab">Perks</div>
+    <div class="tab">Screenshot</div>
+    <br />
+    <div id="tree_graph">
+        <svg width="@(svg_unit*16)" height="@(svg_unit*16)">
+            @{
+                foreach (Connection c in Model.Skills[0].PerksAvailable.Connections)
+                {
+                    <line x1="@(svg_unit*c.Start.GraphX + 8*svg_unit)" y1="@(15*svg_unit - svg_unit*c.Start.GraphY)" x2="@(svg_unit*c.End.GraphX + 8*svg_unit)" y2="@(15*svg_unit - svg_unit*c.End.GraphY)" style="stroke-width:2; stroke:#444;" />
+                }
+                foreach (Perk p in Model.Skills[0].PerksAvailable.Perks)
+                {
+                    <circle cx="@(svg_unit*p.GraphX + 8*svg_unit)" cy="@(15*svg_unit - svg_unit*p.GraphY)" r="5" fill="white" />
+                    @:<text x="@(svg_unit*p.GraphX + 8*svg_unit)" y="@(15*svg_unit - svg_unit*p.GraphY+20)" fill="white" text-anchor="middle">@p.Name</text>
+                }
+            }
+        </svg>
+    </div>
+    <div id="screenshot">
+        <img src="@Model.ImgLink" height="@(svg_unit*16)" />
+    </div>
+</div>
+<h1>@Model.Name</h1>
+<p style="padding-right:10px">@Model.Description</p>
