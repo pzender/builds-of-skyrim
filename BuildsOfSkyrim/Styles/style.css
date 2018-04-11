@@ -22,22 +22,22 @@
     text-align:center;
 }
 
-#top_menu {
+.menu {
     background-color: #000f00;
     overflow: auto;
     margin:auto;
 }
 
-#top_menu ul {
+.menu ul {
         list-style-type: none;
         margin: 0px;
         padding: 0px;
 }
-#top_menu li{
+.menu li{
     float:left;
 }
 
-#top_menu li a {
+.menu li a {
     display:block;
     width:120px;
     color:#afa;
@@ -47,7 +47,7 @@
     background-color:#020;
 }
 
-#top_menu li a:hover {
+.menu li a:hover {
     background-color:#050;
 }
 
@@ -55,4 +55,16 @@
     margin:auto;
     text-align:justify;
     overflow:auto;
+}
+
+
+#img_slot {
+    background-color: #400;
+    float: right;
+    width: 40%;
+    margin-left: 15px;
+}
+
+svg text {
+    font-size: 10px;
 }

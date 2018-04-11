@@ -1,18 +1,17 @@
 ﻿@using BuildsOfSkyrim.Models
-@{ int svg_unit = 30;}
+
 @model PerkTree
-<div style="background-color:#a00">
-    <svg>
+
+    <svg viewBox="-160 -300 320 320">
         @{ 
             foreach(Connection c in Model.Connections)
             {
-                <line x1="@c.Start.GraphX" y1="@c.Start.GraphY" x2="@c.End.GraphX" y2="@c.End.GraphY" />
+                <line x1="@(20*c.Start.GraphX)" y1="@(-20*c.Start.GraphY)" x2="@(20*c.End.GraphX)" y2="@(-20*c.End.GraphY)" style="stroke:#444; stroke-width:2px;"/>
             }
             foreach(Perk p in Model.Perks)
             {
-                <circle cx="@(svg_unit*p.GraphX - 240)" cy="@(16*svg_unit - svg_unit*p.GraphY)" r="10" fill="white" />
-                @:<text x="@(svg_unit*p.GraphX - 240)" y="@(16*svg_unit - svg_unit*p.GraphY)" fill="white">@p.Name</text>
+                <circle cx="@(20*p.GraphX)" cy="@(-20*p.GraphY)" r="5" fill="white" />
+                @:<text x="@(20*p.GraphX)" y="@(-20*p.GraphY+15)" fill="white" text-anchor="middle">@p.Name</text>
             }
         }
     </svg>
-</div>

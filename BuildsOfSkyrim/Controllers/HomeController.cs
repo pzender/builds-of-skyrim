@@ -18,5 +18,10 @@ namespace BuildsOfSkyrim.Controllers
         {
             return View(BuildDAO.Example());
         }
+        
+        public PartialViewResult Tree(int id)
+        {
+            return PartialView(SkillDAO.Example().PerksAvailable);
+        }
     }
 }

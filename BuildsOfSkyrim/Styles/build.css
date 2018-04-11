@@ -2,21 +2,22 @@
     background-color: #400;
     float: right;
     width: auto;
-    margin-left:15px;  
+    margin-left: 15px;
 }
 
 #screenshot {
-    display: none;
     float: right;
 }
 
 #tree_graph {
     float: right;
+    display: none;
 }
 
 div.tab {
-    width: 50%;
+    width: 30%;
     padding: 10px;
-    display: inline;
+    display: inline-block;
     border: 2px solid black;
 }
+
