@@ -30,8 +30,8 @@
 
 .menu ul {
         list-style-type: none;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
 }
 .menu li{
     float:left;
@@ -67,4 +67,24 @@
 
 svg text {
     font-size: 10px;
+}
+
+#tree_graph_slot {
+    width:40%;
+}
+
+#description {
+    width:30%;
+}
+#summary {
+    width:30%;
+}
+
+.build_element {
+    width: 30%;
+    border: 2px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    display:block;
+    float:left;
 }

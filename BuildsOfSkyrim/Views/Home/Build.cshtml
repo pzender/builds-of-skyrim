@@ -4,22 +4,39 @@
 @{
     ViewBag.Title = "Build";
 }
+<div id="container">
+    <div id="description" class="build_element">
+        <h1>@Model.Name</h1>
+        <p>@Model.Description</p><p>@Model.Description</p>
+    </div>
+    <div id="tree_graph_slot">
+        <div id="tree_graph"></div>
+        <div class="menu">
+            <ul>
+                <li><a>Previous</a></li>
+                <li><a>THIS</a></li>
+                <li><a>Next</a></li>
+            </ul>
+        </div>
 
-<div id="description">
-        
-</div>
-<div id="tree_graph">
-    <script>LoadPerkTree(0, "#tree_graph")</script>
-</div>
-<div id="summary">
-
+    </div>
+    <div id="summary" class="build_element">
+        <ul>
+            <li>RACE</li>
+            <li>STONE</li>
+            <li>CLASS</li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="build_element" style="width:100%;">
+        SETTINGS
+    </div>
 </div>
 
 <script>
     function LoadPerkTree(tree_id, target_div) {
-        var id = tree_id
-        $(target_div).css("display", "block")
-        $(target_div).load("@Url.Action("Tree", new { id = })")
+        $(target_div).load("@Url.Action("Tree")/" + tree_id)
     }
-    
+
+    LoadPerkTree(0, "#tree_graph")
 </script>
