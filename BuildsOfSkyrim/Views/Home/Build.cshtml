@@ -4,39 +4,112 @@
 @{
     ViewBag.Title = "Build";
 }
-<div id="container">
-    <div id="description" class="build_element">
-        <h1>@Model.Name</h1>
-        <p>@Model.Description</p><p>@Model.Description</p>
-    </div>
-    <div id="tree_graph_slot">
-        <div id="tree_graph"></div>
-        <div class="menu">
-            <ul>
-                <li><a>Previous</a></li>
-                <li><a>THIS</a></li>
-                <li><a>Next</a></li>
-            </ul>
-        </div>
+<div id="description" class="build_element">
+    <button style="float:right">Edit</button>
+    <h1>@Model.Name</h1>
+    <p>@Model.Description</p>
 
-    </div>
-    <div id="summary" class="build_element">
-        <ul>
-            <li>RACE</li>
-            <li>STONE</li>
-            <li>CLASS</li>
-            <li></li>
-        </ul>
-    </div>
-    <div class="build_element" style="width:100%;">
-        SETTINGS
+</div>
+<div id="summary" class="build_element">
+    <dl>
+        <dt>Level: <var id="val_level"></var></dt>
+        <dt>Class: <var id="val_class"></var></dt>
+        <dd>
+            <p>Intelligent and personable, they prefer to accomplish tasks with their words first, and sword second.</p>
+        </dd>
+
+        <dt>
+            Race: <select>
+                <option>Select</option>
+                <option>Nord</option>
+            </select>
+        </dt>
+        <dd>
+
+            <ul>
+                <li><b>Daughter/Son of Skyrim: </b>Resistance to frost, increased while Avatar is active.</li>
+                <li><b>The Purge: </b>At levels 10/20/30, choose a race to deal bonus damage to.</li>
+                <li><b>Warrior's Heart: </b>In combat, deal more damage as Health decreases.</li>
+                <li>
+                    <i>Quest reward - Rediscover Skyrim's past by clearing 8 dungeons to unlock:<br /> </i>
+                    <b>Avatar: 1/day </b>- Grants very fast Magicka and Stamina regeneration for a short time.
+                </li>
+            </ul>
+        </dd>
+
+        <dt>Standing stone: <select>
+            <option>Select</option>
+            <option>The Lady</option>
+        </select></dt>
+        <dd>
+            <ul>
+                <li>Lunar Familiar: Spirit cat that fights for you.</li>
+                <li>Eclipse: Marks a target for your spirit cat to attack.</li>
+            </ul>
+        </dd>
+    </dl>
+    <div class="help">
+        Level and class are set automatically based on your perk choices. <br />
+        Level is simply the number of perks required. <br />
+        Class depends on the highest skills <br />
+        <br />
+        They are used as additional tags to make it easier to search for specific builds<br />
     </div>
 </div>
+<div id="tree_graph_slot" class="build_element">
+    <div id="tree_graph"></div>
+    <div class="menu" id="skill_menu">
+        <ul>
+            <li><a>Archery <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Block <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Heavy Armor <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>One-Handed <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Two-Handed <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Smithing <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Alteration <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Conjuration <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Destruction <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Illusion  <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Restoration <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Enchanting <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Light Armor <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Lockpicking <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Pickpocket <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Sneak <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Speech <var id="ArcheryLevelReq">0</var></a></li>
+            <li><a>Alchemy <var id="ArcheryLevelReq">0</var></a></li>
+        </ul>
+    </div>
 
+</div>
+<div class="build_element" id="settings">
+    <table>
+        <tr>
+            <td>Races</td>
+            <td>Standing stones</td>
+            <td>Perks</td>
+        </tr>
+        <tr>
+            <td>
+                <select><option>Imperious</option></select>
+            </td>
+            <td>
+                <select><option>Aurora</option></select>
+            </td>
+            <td>
+                <select><option>Vanilla</option></select>
+            </td>
+        </tr>
+    </table>
+</div>
 <script>
     function LoadPerkTree(tree_id, target_div) {
         $(target_div).load("@Url.Action("Tree")/" + tree_id)
     }
 
     LoadPerkTree(0, "#tree_graph")
+    $("#val_class").text("Bard")
+    $("#val_level").text("17")
+
+    
 </script>
