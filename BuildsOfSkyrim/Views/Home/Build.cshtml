@@ -5,24 +5,25 @@
     ViewBag.Title = "Build";
 }
 <div id="description" class="build_element">
-    <button style="float:right">Edit</button>
+    <button style="float:right">Edit Build</button>
     <h1>@Model.Name</h1>
     <p>@Model.Description</p>
+
+
 
 </div>
 <div id="summary" class="build_element">
     <dl>
         <dt>Level: <var id="val_level"></var></dt>
+        <dd class="help">Based on the number of perks required</dd>
         <dt>Class: <var id="val_class"></var></dt>
         <dd>
             <p>Intelligent and personable, they prefer to accomplish tasks with their words first, and sword second.</p>
         </dd>
+        <dd class="help">Chosen automatically depending on the highest skills</dd>
 
         <dt>
-            Race: <select>
-                <option>Select</option>
-                <option>Nord</option>
-            </select>
+            Race: <var id="val_race"></var>
         </dt>
         <dd>
 
@@ -37,27 +38,22 @@
             </ul>
         </dd>
 
-        <dt>Standing stone: <select>
-            <option>Select</option>
-            <option>The Lady</option>
-        </select></dt>
+        <dt>Standing stone: <var id="val_stone"></var></dt>
         <dd>
             <ul>
                 <li>Lunar Familiar: Spirit cat that fights for you.</li>
                 <li>Eclipse: Marks a target for your spirit cat to attack.</li>
             </ul>
         </dd>
-    </dl>
+    </dl><br /><br /><br />
     <div class="help">
         Level and class are set automatically based on your perk choices. <br />
-        Level is simply the number of perks required. <br />
-        Class depends on the highest skills <br />
-        <br />
         They are used as additional tags to make it easier to search for specific builds<br />
     </div>
 </div>
 <div id="tree_graph_slot" class="build_element">
     <div id="tree_graph"></div>
+    <div id="perk_description"></div>
     <div class="menu" id="skill_menu">
         <ul>
             <li><a>Archery <var id="ArcheryLevelReq">0</var></a></li>
@@ -110,6 +106,8 @@
     LoadPerkTree(0, "#tree_graph")
     $("#val_class").text("Bard")
     $("#val_level").text("17")
+    $("#val_stone").text("The Lady")
+    $("#val_race").text("Nord")
 
-    
+
 </script>
