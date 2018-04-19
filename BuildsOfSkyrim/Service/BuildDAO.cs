@@ -9,6 +9,7 @@ namespace BuildsOfSkyrim.Service
     public class BuildDAO
     {
         public static Build Example() {
+            CharacterTraitDAO traits = new CharacterTraitDAO();
             return new Build()
             {
                 Name = "Bragi",
@@ -20,7 +21,9 @@ namespace BuildsOfSkyrim.Service
                 Skills = new List<Skill>()
                 {
                     SkillDAO.Example()
-                }
+                },
+                StandingStone = traits.FindByNameAndModset("The Apprentice", "Aurora"),
+                Race = traits.FindByNameAndModset("Nord", "Imperious")
             };
         }
     }

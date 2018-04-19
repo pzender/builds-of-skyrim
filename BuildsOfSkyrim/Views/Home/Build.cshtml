@@ -17,34 +17,12 @@
         <dt>Level: <var id="val_level"></var></dt>
         <dd class="help">Based on the number of perks required</dd>
         <dt>Class: <var id="val_class"></var></dt>
-        <dd>
-            <p>Intelligent and personable, they prefer to accomplish tasks with their words first, and sword second.</p>
-        </dd>
+        <dd id="desc_class" class="details"></dd>
         <dd class="help">Chosen automatically depending on the highest skills</dd>
-
-        <dt>
-            Race: <var id="val_race"></var>
-        </dt>
-        <dd>
-
-            <ul>
-                <li><b>Daughter/Son of Skyrim: </b>Resistance to frost, increased while Avatar is active.</li>
-                <li><b>The Purge: </b>At levels 10/20/30, choose a race to deal bonus damage to.</li>
-                <li><b>Warrior's Heart: </b>In combat, deal more damage as Health decreases.</li>
-                <li>
-                    <i>Quest reward - Rediscover Skyrim's past by clearing 8 dungeons to unlock:<br /> </i>
-                    <b>Avatar: 1/day </b>- Grants very fast Magicka and Stamina regeneration for a short time.
-                </li>
-            </ul>
-        </dd>
-
+        <dt>Race: <var id="val_race"></var></dt>
+        <dd id="desc_race" class="details"></dd>
         <dt>Standing stone: <var id="val_stone"></var></dt>
-        <dd>
-            <ul>
-                <li>Lunar Familiar: Spirit cat that fights for you.</li>
-                <li>Eclipse: Marks a target for your spirit cat to attack.</li>
-            </ul>
-        </dd>
+        <dd id="desc_stone" class="details"></dd>
     </dl><br /><br /><br />
     <div class="help">
         Level and class are set automatically based on your perk choices. <br />
@@ -103,11 +81,35 @@
         $(target_div).load("@Url.Action("Tree")/" + tree_id)
     }
 
+    function LoadStandingStone() {
+        $("#val_stone").text("@Model.StandingStone.Name")
+        $("#desc_stone").html("@Html.Raw(Model.StandingStone.Description)")
+
+    }
+
+    function LoadRace() {
+        $("#val_race").text("@Model.Race.Name")
+        $("#desc_race").html("@Html.Raw(Model.Race.Description)")
+
+    }
+
+    function LoadClass() {
+        $("#val_class").text("Bard")
+        $("desc_class").html("<p>Intelligent and personable, they prefer to accomplish tasks with their words first, and sword second.</p>")
+    }
+
+    function ShowPart(div_id) {
+        $(".details").css("display", "none")
+        $(div_id).css("display", "block")
+    }
+
     LoadPerkTree(0, "#tree_graph")
-    $("#val_class").text("Bard")
-    $("#val_level").text("17")
-    $("#val_stone").text("The Lady")
-    $("#val_race").text("Nord")
+    LoadStandingStone()
+    LoadRace()
+    LoadClass()
+    ShowPart("desc_class")
+    $("#val_level").text(@Model.GetLevel())
+
 
 
 </script>

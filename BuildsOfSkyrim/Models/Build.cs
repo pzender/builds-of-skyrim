@@ -23,11 +23,17 @@ namespace BuildsOfSkyrim.Models
         public CharacterTrait StandingStone { get; set; }
         public string GetClass()
         {
+
             throw new NotImplementedException();
         }
-        public string GetLevel()
+        public int GetLevel()
         {
-            throw new NotImplementedException();
+            int level = 1;
+            foreach(Skill s in Skills)
+            {
+                level += s.PerksTaken.Count;
+            }
+            return level;  
         }
     }
 }

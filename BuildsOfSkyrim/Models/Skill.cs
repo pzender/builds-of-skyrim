@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace BuildsOfSkyrim.Models
 {
@@ -13,5 +14,10 @@ namespace BuildsOfSkyrim.Models
         public PerkTree PerksAvailable { get; set; }
         public string Name { get; set; }
         public string ModSet { get; set; }
+
+        public int GetRequiredLevel()
+        {
+            return PerksTaken.Select(p => p.SkillLevelRequired).Max();
+        }
     }
 }

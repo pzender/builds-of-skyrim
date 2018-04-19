@@ -15,7 +15,7 @@ namespace BuildsOfSkyrim.Models
         public string ModSet { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public TraitType TraitType { get; set; }
+        public string TraitType { get; set; }
         
     }
 }
